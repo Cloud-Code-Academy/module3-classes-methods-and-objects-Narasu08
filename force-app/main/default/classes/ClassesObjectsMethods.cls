@@ -26,7 +26,7 @@
  * Math class: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_math.htm
  * Classes: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_understanding.htm
  *
- * @author Your Name
+ * @author Lakshmi Yarra
  */
 
 public with sharing class ClassesObjectsMethods {
@@ -40,17 +40,28 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<String> practiceStringMethods() {
         // Initialize a String with 'Hello, Salesforce!'
+        String str = 'Hello, Salesforce!';
         
-        // Get the length of the String        
+        // Get the length of the String
+        Integer strLen = str.length();
+        
         // Get a substring of the String of the first 5 characters
+        String strSub = str.substring(0, 5);
+        //String strSub1 = str.substring(5);
         // Convert the String to lower case
+        String strLower = str.toLowerCase();
+
         
         // Return the list with the string data
+           List<String> resultList = new List<String>();
         // In the first position add the string length
+           resultList.add(String.valueOf(strLen));
         // In the second position add the substring
+           resultList.add(strSub);
         // In the third position add the string in lower case
+           resultList.add(strLower);
 
-        return null; // Replace null with the variable you used to store the result
+        return resultList; // Replace null with the variable you used to store the result
     }
 
     /**
