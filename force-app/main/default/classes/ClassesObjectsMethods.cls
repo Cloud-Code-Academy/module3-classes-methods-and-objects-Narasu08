@@ -124,16 +124,21 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
+        Integer count = 0;
 
-        /*
-        for () {
+        List<Char> vowelAlphabet = new List<Char>{'a', 'e', 'i', 'o', 'u'};
+        for (Integer i=0; i< str.length(); i++) {
             // get individual characters from the string - hint use substring or split
-            // check if the character is a vowel
-            // if it is a vowel, increment the result Integer
-        }
-        */
+            Char vowels = str.CharAt(i);
 
-        return null; // Replace null with the variable you used to store the result
+            // check if the character is a vowel
+               if(vowelAlphabet.contains(vowels)){
+                // if it is a vowel, increment the result Integer
+                count++;
+               }
+            
+        }
+        return count; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -148,16 +153,22 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
+        String combinedString = '';
 
         // Loop through the list of scientists' names
+        for(String s:scientistNames){
+             // If the name doesn't contain the letter 'G', skip this iteration
+              if(s.toLowerCase().contains('g')){
+                    // Add the name to the result string, followed by a comma
+                    combinedString = combinedString + s + ',';
+              }
+              // Remove the last comma from the result string
+              if(!combinedString.isEmpty()) {
+                combinedString = combinedString.substring(0, combinedString.length() - 1);
+            }
+        }
 
-            // If the name doesn't contain the letter 'G', skip this iteration
-
-            // Add the name to the result string, followed by a comma
-
-        // Remove the last comma from the result string
-
-        return null; // Replace null with the variable you used to store the result
+        return combinedString; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -170,11 +181,13 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
-
+           Double aSquare = Math.pow(a,2);
+           Double bSquare = Math.pow(b,2);
         // Calculate the absolute difference using Math.abs() function
+           Double diffNumber = Math.abs(aSquare - bSquare);
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return diffNumber; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -185,9 +198,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-
+           Integer randomNumber = Math.round(Math.random() *100);
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return randomNumber; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -198,11 +211,13 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getCurrentDate() {
         // Get the todays date
+        Date dT = Date.today();
 
         // Format the current date
+        String dayString = dT.format();
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return dayString; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -213,14 +228,26 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getDayOfWeek(DateTime dt) {
         // Define a map of day of the week as a key and day number as the value
-        // Monday = 1, Tuesday = 2, etc.
+        Map<String,Integer> weekMap = new Map<String,Integer>{
+        'Monday' => 1, 
+        'Tuesday' => 2,
+        'Wednesday' => 3,
+        'Thursday' => 4,
+        'Friday' => 5,
+        'Saturday' => 6,
+        'Sunday' => 7
+        };
+
 
         // Get the day name using .format('EEEE');
-
+        //Datetime dT = (Datetime)myDate;
+        //system.debug(dT);
+        String dayOfWeek = dt.format('EEEE');
         // Get the day number from the map using the day name
+        Integer dayNumber = weekMap.get(dayOfWeek);
 
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        return String.valueOf(dayNumber); // Replace null with the variable you used to store the result
     }
 
 
